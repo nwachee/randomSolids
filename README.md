@@ -29,7 +29,7 @@ Because coding smart contracts is like writing spells for the internet — and I
 ### 📆 Progress Timeline
 
 - ✅ Wrote my first contract in Remix
-- 🔜 Deployed to testnet using Foundry
+- ✅ Deployed to testnet using Foundry
 - 🔜 Build a mini DAO & a cool NFT project
 - 🔜 Join a hackathon and contribute to a DAO
 
