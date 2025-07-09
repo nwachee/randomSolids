@@ -1,66 +1,106 @@
-## Foundry
+## Foundry Fund Me
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+A minimal, production-style smart contract project to learn **Foundry**, **Chainlink Price Feeds**, and best practices in modern Solidity development.
 
-Foundry consists of:
+## About
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+This project is a simplified version of a funding smart contract (inspired by crowdfunding). It uses **Chainlink oracles** to convert ETH to USD and enforces a minimum contribution based on real-world value.  
 
-## Documentation
+The goal is to practice:
+- Writing gas-efficient contracts with Solidity
+- Using Chainlink price feeds
+- Testing with Foundry's `forge`
+- Script-based deployment and interaction
+- Building with clean folder structures and modularity
 
-https://book.getfoundry.sh/
+## Getting Started
+
+### Prerequisites
+
+- Git
+- [Foundry](https://book.getfoundry.sh/getting-started/installation) installed
+- A wallet/private key (for deployment)
+- RPC provider (e.g., [Alchemy](https://www.alchemy.com/) or [Infura](https://infura.io/))
+
+---
+
+## Installation
+
+### 1. **Install Foundry**
+
+```bash
+curl -L https://foundry.paradigm.xyz 
+foundryup
+```
+### 2. **Clone the Repo**
+
+``` bash 
+git clone https://github.com/nwachee/randomSolids.git
+cd foundry-fundMe
+```
 
 ## Usage
 
 ### Build
 
-```shell
-$ forge build
+```bash
+ forge build
+```
+### Deploy to Testnet or Mainnet
+
+#### 1. **Setup environment variables**
+
+Create a ```.env``` file in the root folder:
+
+```bash
+SEPOLIA_RPC_URL=https://eth-sepolia.g.alchemy.com/v2/YOUR_API_KEY
+PRIVATE_KEY=your_private_key_without_0x
+ETHERSCAN_API_KEY=your_etherscan_api_key
+```
+
+**NOTE: FOR DEVELOPMENT, PLEASE USE A PRIVATE KEY THAT DOESN'T HAVE ANY REAL FUNDS ASSOCIATED WITH IT.**
+
+#### 2. **Deploy**
+```bash
+forge script script/DeployFundMe.s.sol:DeployFundMe --rpc-url $SEPOLIA_RPC_URL --private-key $PRIVATE_KEY --broadcast  --verify
 ```
 
 ### Test
-
-```shell
-$ forge test
+Run Local Unit Tests: 
+```bash
+ forge test -vvv
 ```
 
 ### Format
+To run code formatting:
 
-```shell
-$ forge fmt
+```bash
+ forge fmt
 ```
 
 ### Gas Snapshots
+Estimate how much gas things cost by running
 
-```shell
-$ forge snapshot
+```bash
+ forge snapshot
 ```
 
 ### Anvil
 
 ```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+bash anvil
 ```
 
 ### Cast
 
-```shell
-$ cast <subcommand>
+```bash
+ cast <subcommand>
 ```
 
 ### Help
 
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
+```bash
+ forge --help
+ anvil --help
+ cast --help
 ```
