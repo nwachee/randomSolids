@@ -10,6 +10,11 @@
 [submodule "smartLottery/lib/solmate"]
 	path = smartLottery/lib/solmate
 	url = https://github.com/transmissions11/solmate
+<<<<<<< HEAD
 [submodule "ERC20WithFoundry/lib/forge-std"]
 	path = ERC20WithFoundry/lib/forge-std
+=======
+[submodule "ERC20-Foundry/lib/forge-std"]
+	path = ERC20-Foundry/lib/forge-std
+>>>>>>> dev
 	url = https://github.com/foundry-rs/forge-std
